@@ -17,14 +17,19 @@ struct TimerFeature: Reducer {
             case .stopTapped:
                 state.isTimerActive = false
                 return .none
+            case .timerTitleChanged(let newTitle):
+                state.timerTitle = newTitle
+                return .none
             }
         }
     }
     enum Action: Equatable {
         case startTapped
         case stopTapped
+        case timerTitleChanged(String)
     }
     struct State: Equatable {
         var isTimerActive = false
+        var timerTitle = ""
     }
 }
