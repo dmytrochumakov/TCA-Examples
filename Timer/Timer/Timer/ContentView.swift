@@ -13,6 +13,8 @@ struct ContentView: View {
     var body: some View {
         WithViewStore(store, observe: { $0 }) { viewStore in
             VStack(spacing: .zero) {
+                Text(String(viewStore.secondsElapsed))
+                    .foregroundColor(.blue)
                 Button(
                     action: {
                         if viewStore.isTimerActive {
